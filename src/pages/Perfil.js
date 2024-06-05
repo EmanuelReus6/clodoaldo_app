@@ -1,14 +1,14 @@
 import { TouchableOpacity, StyleSheet, Text, View, FlatList } from 'react-native';
 
-export default function Fornecedor({navigation}) {
+export default function Perfil({navigation}) {
     
     return (
         <View style={styles.container}>
         <View style={styles.topBar}>
-            <Text style={styles.txtTask}> Fornecedor </Text>
+            <Text style={styles.txtTask}> Tarefas </Text>
         </View>
         
-            <Text> aaaaaaa </Text>
+            <Text> Perfil </Text>
         <View style={styles.bottomBar}></View>
     </View>
   );
