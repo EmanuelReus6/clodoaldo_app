@@ -1,15 +1,65 @@
 import {View, SafeAreaView, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
 export default function Home(){
     return(
         <SafeAreaView style={styles.container}>
-            <View style={styles.bola}><Text style={styles.texto1} >Bem vindo, Usuario!</Text></View>
+            <View style={styles.bola}><Text style={styles.texto1}>Bem vindo, Usuario!</Text></View>
+            <TouchableOpacity style={styles.btnestoque}><Feather name="box" size={50} color="white"  style={styles.icone}/><Text style={styles.textbotao}>Estoque</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.btnfornecedores}><Octicons name="people" size={50} color="white" style={styles.icone}/><Text style={styles.textbotao}>Fornecedores</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.btnentradas}><MaterialCommunityIcons name="truck-plus-outline" size={50} color="white" style={styles.icone} /><Text style={styles.textbotao}>Entradas</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.btnsaidas}><MaterialCommunityIcons name="truck-plus-outline" size={50} color="white" style={styles.icone} /><Text style={styles.textbotao}>Saidas</Text></TouchableOpacity>
         </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
+    textbotao:{
+        bottom:30,
+        marginLeft:100,
+        color: '#ffffff',
+        fontSize:20,
+    },
+    icone:{
+        top:10,
+        marginLeft:15,
+    },
+
+    btnestoque:{
+        borderRadius:10,
+        backgroundColor: '#093f88',
+        width:260,
+        height:70,
+        marginLeft:80,
+        bottom:170,
+    },
+    btnfornecedores:{
+        borderRadius:10,
+        backgroundColor: '#093f88',
+        width:260,
+        height:70,
+        marginLeft:80,
+        bottom:150,
+    },
+    btnentradas:{
+        borderRadius:10,
+        backgroundColor: '#093f88',
+        width:260,
+        height:70,
+        marginLeft:80,
+        bottom:130,
+    },
+    btnsaidas:{
+        borderRadius:10,
+        backgroundColor: '#093f88',
+        width:260,
+        height:70,
+        marginLeft:80,
+        bottom:110,
+    },
     texto1:{
       color: '#FFFFFF',
       fontSize:35,  
