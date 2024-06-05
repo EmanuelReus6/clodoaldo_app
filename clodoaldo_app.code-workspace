@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "clodoaldo_app",
+			"path": "."
+		},
+		{
+			"name": "src",
+			"path": "../../../SolucoesMobile2/clodoaldo/src"
+		}
+	],
+	"settings": {}
+}
