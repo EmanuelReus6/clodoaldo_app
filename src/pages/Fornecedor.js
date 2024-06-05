@@ -1,10 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native';
-import Fornecedor from './src/pages/Fornecedor';
 
-export default function App() {
+export default function Fornecedor() {
   return (
     <View style={styles.container}>
-      <Fornecedor/>
+        <View style={style.topBar}>
+
+            <Text> aaaaaaa </Text>
+        </View>
     </View>
   );
 }
@@ -16,4 +18,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  topBar:{
+    backgroundColor: '',
+    width: 100,
+    height: 100,
+    
+  }
 });
