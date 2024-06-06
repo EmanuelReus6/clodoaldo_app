@@ -3,15 +3,23 @@ import { Feather } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-
 export default function Home(){
     return(
         <SafeAreaView style={styles.container}>
             <View style={styles.bola}><Text style={styles.texto1}>Bem vindo, Usuario!</Text></View>
-            <TouchableOpacity style={styles.btnestoque}><Feather name="box" size={50} color="white"  style={styles.icone}/><Text style={styles.textbotao}>Estoque</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.btnfornecedores}><Octicons name="people" size={50} color="white" style={styles.icone}/><Text style={styles.textbotao}>Fornecedores</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.btnentradas}><MaterialCommunityIcons name="truck-plus-outline" size={50} color="white" style={styles.icone} /><Text style={styles.textbotao}>Entradas</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.btnsaidas}><MaterialCommunityIcons name="truck-plus-outline" size={50} color="white" style={styles.icone} /><Text style={styles.textbotao}>Saidas</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.btnestoque}>
+                <Feather name="box" size={50} color="white"  style={styles.icone}/><Text style={styles.textbotao}>Estoque</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.btnfornecedores} 
+            onPress={() => navigation.navigate('Fornecedor')}>
+                <Octicons name="people" size={50} color="white" style={styles.icone}/><Text style={styles.textbotao}>Fornecedores</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.btnentradas}>
+                <MaterialCommunityIcons name="truck-plus-outline" size={50} color="white" style={styles.icone} /><Text style={styles.textbotao}>Entradas</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.btnsaidas}>
+                <MaterialCommunityIcons name="truck-plus-outline" size={50} color="white" style={styles.icone} /><Text style={styles.textbotao}>Saidas</Text>
+            </TouchableOpacity>
         </SafeAreaView>
     );
 }

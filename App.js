@@ -1,12 +1,13 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import Home from './src/pages/Home';
 import Avisos from './src/pages/Avisos';
 import Perfil from './src/pages/Perfil';
 
-import { Entypo } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
-export default function BottomTab(){
+function BottomTab(){
 
     const Tab = createBottomTabNavigator();
 
@@ -24,17 +25,17 @@ export default function BottomTab(){
           } 
           else if (route.name === 'Avisos') {
             iconName = focused 
-            ? 'login'
-            : 'login';
+            ? 'warning'
+            : 'warning';
           }
           else if (route.name === 'Perfil') {
             iconName = focused 
-            ? 'login'
-            : 'login';
+            ? 'person'
+            : 'person';
           }
-          return <Entypo name={iconName} size={size} color={color} />;
+          return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#a61fab',
+        tabBarActiveTintColor: '#093f88',
         tabBarInactiveTintColor: 'gray',
       })}
     >
@@ -45,3 +46,19 @@ export default function BottomTab(){
     </NavigationContainer>
   );
 };
+
+
+
+export default function App(){
+
+  const Stack = createStackNavigator();
+
+  return(
+    <NavigationContainer> 
+        <Stack.Navigator>
+          <Stack.Screen name='Login' component={Login} />
+          <Stack.Screen options={{headerShown:false}} name='Home' component={BottomTab}/> 
+        </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
