@@ -38,6 +38,6 @@ const styles = StyleSheet.create({
   },
   txtLogin: {
     color: '#fff',
-    justifyContent: 'center'
+    textAlign: 'center'
   }
 });

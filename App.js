@@ -41,7 +41,7 @@ function BottomTab(){
         tabBarInactiveTintColor: 'gray',
       })}
     >
-        <Tab.Screen name="Home" component={Home}/>
+        <Tab.Screen options={{headerShown:false}} name="Home" component={Home}/>
         <Tab.Screen name="Perfil" component={Perfil}/>
         <Tab.Screen name="Avisos" component={Avisos}/>
       </Tab.Navigator>
@@ -58,7 +58,7 @@ export default function App(){
   return(
     <NavigationContainer> 
         <Stack.Navigator>
-          <Stack.Screen name='Login' component={Login} />
+          <Stack.Screen options={{headerShown:false}}  name='Login' component={Login} />
           <Stack.Screen options={{headerShown:false}} name='Home' component={BottomTab}/> 
         </Stack.Navigator>
     </NavigationContainer>
