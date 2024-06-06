@@ -1,9 +1,10 @@
 import {View, SafeAreaView, Text, TouchableOpacity, StyleSheet} from 'react-native';
+
 import { Feather } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function Home(){
+export default function Home({navigation}){
     return(
         <SafeAreaView style={styles.container}>
             <View style={styles.bola}><Text style={styles.texto1}>Bem vindo, Usuario!</Text></View>

@@ -1,14 +1,18 @@
-import { TouchableOpacity, StyleSheet, Text, View, FlatList } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 
 export default function Login({navigation}) {
     
     return (
         <View style={styles.container}>
         <View style={styles.topBar}>
-            <Text style={styles.txtTask}> Fornecedor </Text>
+            <Text style={styles.txtLogin}> Login </Text>
         </View>
         
-            <Text> LOGIN </Text>
+            <TouchableOpacity style={styles.container}
+              onPress={() => navigation.navigate('Home')}
+            >
+              <Text>aaaaaa</Text>
+            </TouchableOpacity>
         <View style={styles.bottomBar}></View>
     </View>
   );
@@ -31,5 +35,9 @@ const styles = StyleSheet.create({
     height: 80,
     top: 650,
     borderRadius: 20
+  },
+  txtLogin: {
+    color: '#fff',
+    justifyContent: 'center'
   }
 });

@@ -1,9 +1,11 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+
 import Home from './src/pages/Home';
 import Avisos from './src/pages/Avisos';
 import Perfil from './src/pages/Perfil';
+import Login from './src/pages/Login';
 
 import { Ionicons } from '@expo/vector-icons';
 
@@ -12,7 +14,7 @@ function BottomTab(){
     const Tab = createBottomTabNavigator();
 
   return(
-    <NavigationContainer>
+ 
       <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
@@ -43,7 +45,7 @@ function BottomTab(){
         <Tab.Screen name="Perfil" component={Perfil}/>
         <Tab.Screen name="Avisos" component={Avisos}/>
       </Tab.Navigator>
-    </NavigationContainer>
+   
   );
 };
 

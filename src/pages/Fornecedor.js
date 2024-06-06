@@ -1,4 +1,4 @@
-import { TouchableOpacity, StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function Fornecedor({navigation}) {
     
