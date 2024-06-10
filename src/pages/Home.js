@@ -8,22 +8,30 @@ export default function Home({navigation}){
     return(
         <SafeAreaView style={styles.container}>
             <View style={styles.bola}><Text style={styles.texto1}>Bem vindo, Usuario!</Text></View>
-            <TouchableOpacity style={styles.btnestoque}>
+            <TouchableOpacity style={styles.btnestoque}
+                onPress={() => navigation.navigate('Estoque')}
+            >
                 <Feather name="box" size={50} color="white"  style={styles.icone}/><Text style={styles.textbotao}>Estoque</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.btnfornecedores} 
-            onPress={() => navigation.navigate('Fornecedor')}>
+                onPress={() => navigation.navigate('Fornecedor')}
+            >
                 <Octicons name="people" size={50} color="white" style={styles.icone}/><Text style={styles.textbotao}>Fornecedores</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.btnentradas}>
+            <TouchableOpacity style={styles.btnentradas}
+                onPress={() => navigation.navigate('Entradas')}
+            >
                 <MaterialCommunityIcons name="truck-plus-outline" size={50} color="white" style={styles.icone} /><Text style={styles.textbotao}>Entradas</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.btnsaidas}>
+            <TouchableOpacity style={styles.btnsaidas}
+                onPress={() => navigation.navigate('Saidas')}
+            >
                 <MaterialCommunityIcons name="truck-plus-outline" size={50} color="white" style={styles.icone} /><Text style={styles.textbotao}>Saidas</Text>
             </TouchableOpacity>
         </SafeAreaView>
     );
 }
+
 
 const styles = StyleSheet.create({
     textbotao:{
