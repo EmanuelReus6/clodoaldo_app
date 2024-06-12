@@ -7,9 +7,6 @@ export default function Entradas({navigation}) {
     return (
         <View style={styles.container}>
           <View style={styles.topBar}>
-            <Ionicons name="chevron-back" size={30} color="white" style={styles.seta}
-              onPress={() => navigation.navigate('Home')}
-            />
               <Text style={styles.txtAvisos}> Avisos </Text>
               <Ionicons name="warning" size={60} color="white" style={styles.icon}/> 
           </View>
@@ -22,12 +19,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffff',
-  },
-  seta:{
-    flex: 1,
-    position: 'absolute',
-    paddingLeft: 30,
-    top: 25
   },
   txtAvisos:{
     color: '#fff',
