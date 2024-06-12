@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 import { Ionicons } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
 
 export default function Fornecedor({navigation}) {
     
@@ -11,6 +12,7 @@ export default function Fornecedor({navigation}) {
             onPress={() => navigation.navigate('Home')}
           />
             <Text style={styles.txtFornecedor}> Fornecedor </Text>
+            <Octicons name="people" size={50} color="white"/>
 
             
         </View>
@@ -35,9 +37,8 @@ const styles = StyleSheet.create({
   },
   topBar:{
     backgroundColor: '#093f88',
-    borderRadius: 20,
     justifyContent: 'space-around',
-    width: 350,
+    width: 390,
     height: 80,
     top: 50,
   },

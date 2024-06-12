@@ -1,5 +1,7 @@
 import {View, SafeAreaView, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
+
+// aaaaaaaaaaaaaaa
 import { Feather } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
