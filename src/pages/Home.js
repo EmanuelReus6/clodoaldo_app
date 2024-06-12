@@ -28,7 +28,7 @@ export default function Home({navigation}){
             <TouchableOpacity style={styles.btnsaidas}
                 onPress={() => navigation.navigate('Saidas')}
             >
-                <MaterialCommunityIcons name="truck-plus-outline" size={50} color="white" style={styles.icone} /><Text style={styles.textbotao}>Saidas</Text>
+                <MaterialCommunityIcons name="truck-minus-outline" size={50} color="white" style={styles.icone} /><Text style={styles.textbotao}>Saidas</Text>
             </TouchableOpacity>
         </SafeAreaView>
     );
