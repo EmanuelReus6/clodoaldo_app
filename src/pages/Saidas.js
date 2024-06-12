@@ -12,7 +12,7 @@ export default function Entradas({navigation}) {
               onPress={() => navigation.navigate('Home')}
             />
               <Text style={styles.txtSaidas}> Saidas </Text>
-            <MaterialCommunityIcons name="truck-plus-outline" size={60} color="white"  style={styles.icon}/> 
+            <MaterialCommunityIcons name="truck-minus-outline" size={60} color="white"  style={styles.icon}/> 
           </View>
 
         </View>
