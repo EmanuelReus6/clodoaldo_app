@@ -7,7 +7,7 @@ export default function Entradas({navigation}) {
     return (
         <View style={styles.container}>
           <View style={styles.topBar}>
-              <Text style={styles.txtAvisos}> Avisos </Text>
+              <Text style={styles.txtAvisos}> Avisoss </Text>
               <Ionicons name="warning" size={60} color="white" style={styles.icon}/> 
           </View>
 
