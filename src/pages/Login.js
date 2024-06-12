@@ -5,7 +5,7 @@ export default function Entradas({navigation}) {
     return (
         <View style={styles.container}>
           <View style={styles.topBar}>
-              <Text style={styles.txtLogin}> Perfil </Text>
+              <Text style={styles.txtLogin}> Login </Text>
           </View>
             <TouchableOpacity style={styles.botao}
               onPress={() => navigation.navigate('Home')}
