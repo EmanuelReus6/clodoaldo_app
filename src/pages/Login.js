@@ -1,19 +1,19 @@
-import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
-export default function Login({navigation}) {
+export default function Entradas({navigation}) {
     
     return (
         <View style={styles.container}>
-        <View style={styles.topBar}>
-            <Text style={styles.txtLogin}> Login </Text>
-        </View>
-        
+          <View style={styles.topBar}>
+              <Text style={styles.txtLogin}> Perfil </Text>
+          </View>
             <TouchableOpacity style={styles.botao}
               onPress={() => navigation.navigate('Home')}
             >
               <Text style={styles.txtBotao}>Log In</Text>
-            </TouchableOpacity>
-    </View>
+            </TouchableOpacity> 
+
+        </View>
   );
 }
 
@@ -22,21 +22,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ffff',
   },
-  topBar:{
-    backgroundColor: '#093f88',
-    justifyContent: 'center',
-    width: 350,
-    height: 80,
-    top: 50,
-  },
-  txtLogin: {
+  txtLogin:{
     color: '#fff',
     textAlign: 'center',
-  },
-  txtBotao: {
-    color: '#fff',
-    textAlign: 'center',
-    alignItems: 'center',
   },
   botao: {
     backgroundColor: '#093f88',
@@ -46,5 +34,17 @@ const styles = StyleSheet.create({
     top: 500,
     borderRadius: 20,
     color: '#fff',
-  }
+  },
+  txtBotao: {
+    color: '#fff',
+    textAlign: 'center',
+    alignItems: 'center',
+  },
+  topBar:{
+    backgroundColor: '#093f88',
+    justifyContent: 'space-around',
+    width: 390,
+    height: 80,
+    top: 50,
+  },
 });
