@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import Entypo from '@expo/vector-icons/Entypo';
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 
@@ -14,7 +14,9 @@ export default function Estoque({navigation}) {
               <Text style={styles.txtEstoque}> Estoque </Text>
             <Feather name="box" size={60} color="white"  style={styles.icon}/> 
           </View>
-
+          <TouchableOpacity style={styles.btnNewTask} onPress={() => navigation.navigate('NewTask')}>
+          <Text style={styles.txtbtnNewTask}> + </Text>
+        </TouchableOpacity>
         </View>
   );
 }
@@ -47,4 +49,23 @@ const styles = StyleSheet.create({
     height: 80,
     top: 50,
   },
+  btnNewTask:{
+    backgroundColor: '#093f88',
+    justifyContent: 'center',
+    alignItems: 'center', 
+    height: 60,
+    width: 60,
+    borderRadius: 50,
+    bottom: 30,
+    marginLeft: 20,
+    position: 'absolute'
+    
+  },
+  txtbtnNewTask:{
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: '#fff',
+    alignItems: 'center',
+    paddingBottom: 5
+  }
 });
