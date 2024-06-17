@@ -1,10 +1,34 @@
-import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, FlatList} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { database, doc, deleteDoc } from '../../config/firebaseconfig';
+import { onSnapshot, collection } from 'firebase/firestore';
 import Entypo from '@expo/vector-icons/Entypo';
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 
 export default function Estoque({navigation}) {
-    
+  const [task, setTask] = useState([])
+  
+  // pega infomacoes do banco e adiciona na list
+  // seta a task com os dados do banco
+  useEffect (() => {
+    const tasksCollection = collection(database, 'Produto')
+    const listen = onSnapshot(tasksCollection, (query) => {
+      const list = []
+      query.forEach((doc) => {
+        list.push({...doc.data(), id: doc.id})
+      })
+      setTask(list)
+    })
+    return ()  => listen();
+  }, [])
+
+  // funcao para deletar a task
+  function deleteTask (id) {
+    const taskdocRef = doc(database, 'Produto', id)
+    deleteDoc(taskdocRef)
+  }
+
     return (
         <View style={styles.container}>
           <View style={styles.topBar}>
@@ -14,6 +38,32 @@ export default function Estoque({navigation}) {
               <Text style={styles.txtEstoque}> Estoque </Text>
             <Feather name="box" size={60} color="white"  style={styles.icon}/> 
           </View>
+          <View style={styles.containerB}>
+        <FlatList
+          data={task}
+          renderItem={({item}) => {
+            return(
+              <View>
+                <View style={styles.tasks}>
+                <Text style={styles.txtitem}> 
+                  Cod: {item.codigo}  Nome: {item.nome}</Text>
+                  <Text style={styles.txtitem}>Desc: {item.descricao}</Text>
+                <Text style={styles.txtitem}>Cat: {item.categoria}  Quantd: {item.quantidade}
+                </Text>
+                </View>
+
+                <View style={styles.lixo}>
+                <TouchableOpacity onPress={() => { deleteTask(item.id) }}>
+                  <Entypo name="trash" size={24} color="white"/>
+                </TouchableOpacity>
+                </View>
+                
+              </View>
+            )
+          }}
+        />
+          </View>
+
           <TouchableOpacity style={styles.btnNewTask} onPress={() => navigation.navigate('NewTask')}>
           <Text style={styles.txtbtnNewTask}> + </Text>
         </TouchableOpacity>
@@ -67,5 +117,34 @@ const styles = StyleSheet.create({
     color: '#fff',
     alignItems: 'center',
     paddingBottom: 5
-  }
+  },
+  containerB:{
+    flex: 1,
+    top: 80,
+  },
+
+  txtitem:{
+    color: 'white',
+    fontSize:12,
+    marginLeft:97,
+    top: 13,
+
+  },
+  tasks:{
+    backgroundColor: '#093f88',
+    marginLeft:12,
+    width: 290,
+    height: 75,
+    borderRadius: 10,
+  },
+  lixo:{
+    marginLeft: 311,
+    backgroundColor: '#093f88',
+    bottom: 74,
+    width: 40,
+    height: 40,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
