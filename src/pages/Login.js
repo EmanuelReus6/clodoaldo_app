@@ -4,7 +4,7 @@ export default function Entradas({navigation}) {
     
     return (
         <View style={styles.container}>
-          <View style={styles.topBar}></View>
+          <View style={styles.logo}></View>
             <View style={styles.cadastro}>
               <TextInput
                 style={styles.input}
@@ -33,16 +33,18 @@ const styles = StyleSheet.create({
   },
   cadastro:{
     flex: 1,
-    color: '#fff'
+    color: '#fff',
+    top: 350
   },
   txtLogin:{
     color: '#fff',
     textAlign: 'center',
   },
   input: {
-    width: '80%',
-    borderBottomWidth: 1,
-    padding: 10,
+    color: '#fff',
+    width: 250,
+    borderBottomWidth: 2,
+    padding: 20,
   },
   botao: {
     backgroundColor: '#021D43',
@@ -52,6 +54,7 @@ const styles = StyleSheet.create({
     bottom: 50,
     borderRadius: 20,
     color: '#fff',
+    bottom: 200
   },
   txtBotao: {
     color: '#fff',
@@ -62,7 +65,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#093f88',
     justifyContent: 'space-around',
     width: 390,
-    height: 80,
+    height: 200,
     top: 50,
   },
 });
