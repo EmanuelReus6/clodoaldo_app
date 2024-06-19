@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
-export default function Perfil({ navigation }) {
+export default function NovoUsuario({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
@@ -27,7 +27,7 @@ export default function Perfil({ navigation }) {
           placeholder="senha"
           placeholderTextColor="#000"
         />
-        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('NovoUsuario')}>
+        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('Home')}>
           <Text style={styles.txtBotao}>Novo Usuário</Text>
         </TouchableOpacity>
       </View>
