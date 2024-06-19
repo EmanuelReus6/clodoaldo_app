@@ -10,6 +10,7 @@ import Fornecedor from './src/pages/Fornecedor'
 import Estoque from './src/pages/Estoque';
 import Entradas from './src/pages/Entradas';
 import Saidas from './src/pages/Saidas';
+import AddEstoque from './src/pages/AddEstoque';
 
 import { Ionicons } from '@expo/vector-icons';
 
@@ -68,6 +69,7 @@ export default function App(){
           <Stack.Screen options={{headerShown:false}} name='Fornecedor' component={Fornecedor}/> 
           <Stack.Screen options={{headerShown:false}} name='Entradas' component={Entradas}/> 
           <Stack.Screen options={{headerShown:false}} name='Saidas' component={Saidas}/> 
+          <Stack.Screen options={{headerShown:false}} name='AddEstoque' component={AddEstoque}/> 
         </Stack.Navigator>
     </NavigationContainer>
   );

@@ -64,7 +64,7 @@ export default function Estoque({navigation}) {
         />
           </View>
 
-          <TouchableOpacity style={styles.btnNewTask} onPress={() => navigation.navigate('NewTask')}>
+          <TouchableOpacity style={styles.btnNewTask} onPress={() => navigation.navigate('AddEstoque')}>
           <Text style={styles.txtbtnNewTask}> + </Text>
         </TouchableOpacity>
         </View>
