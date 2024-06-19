@@ -1,5 +1,5 @@
 import React, { useState , useEffect} from 'react';
-import { View, Text, TextInput, StyleSheet, KeyboardAvoidingView, Platform, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput, StyleSheet, KeyboardAvoidingView, Platform, Pressable, Image } from 'react-native';
 import { auth, onAuthStateChanged  } from '../config/firebaseconfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -68,13 +68,13 @@ export default function Login({navigation}) {
     }
     {email === '' || password == ''
     ?
-    <TouchableOpacity style={styles.btnLogin} disabled={true}>
+    <Pressable style={styles.btnLogin} disabled={true}>
         <Text style={styles.txtbtnLogin}>Login</Text>
-    </TouchableOpacity>
+    </Pressable>
     :
-    <TouchableOpacity style={styles.btnLogin} onPress={LoginUser}>
+    <Pressable style={styles.btnLogin} onPress={LoginUser}>
         <Text style={styles.txtbtnLogin}>Login</Text>
-    </TouchableOpacity> 
+    </Pressable> 
     }
     </KeyboardAvoidingView>
   );
@@ -135,77 +135,3 @@ const styles = StyleSheet.create({
     marginTop: 10,
   }
 });
-
-
-/* import { StyleSheet, Image, Text, TextInput, View, TouchableOpacity} from 'react-native';
-
-export default function Entradas({navigation}) {
-    
-    return (
-        <View style={styles.container}>
-          <View style={styles.logo}></View>
-            <View style={styles.cadastro}>
-              <TextInput
-                style={styles.input}
-                placeholder="email"
-                />
-              <TextInput
-                style={styles.input}
-                placeholder="senha"
-                />
-              </View>
-            <TouchableOpacity style={styles.botao}
-              onPress={() => navigation.navigate('Home')}
-            >
-              <Text style={styles.txtBotao}>Log In</Text>
-            </TouchableOpacity> 
-
-        </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#093f88',
-    alignItems: 'center'
-  },
-  cadastro:{
-    flex: 1,
-    color: '#fff',
-    top: 350
-  },
-  txtLogin:{
-    color: '#fff',
-    textAlign: 'center',
-  },
-  input: {
-    color: '#fff',
-    width: 250,
-    borderBottomWidth: 2,
-    padding: 20,
-  },
-  botao: {
-    backgroundColor: '#021D43',
-    justifyContent: 'center',
-    width: 100,
-    height: 50,
-    bottom: 50,
-    borderRadius: 20,
-    color: '#fff',
-    bottom: 200
-  },
-  txtBotao: {
-    color: '#fff',
-    textAlign: 'center',
-    alignItems: 'center',
-  },
-  topBar:{
-    backgroundColor: '#093f88',
-    justifyContent: 'space-around',
-    width: 390,
-    height: 200,
-    top: 50,
-  },
-});
- */
