@@ -13,7 +13,7 @@ export default function Login({navigation}) {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log('User logged in:', userCredential.user);
-      navigation.navigate('Task', { idUser: userCredential.user.uid }); 
+      navigation.navigate('Home', { idUser: userCredential.user.uid }); 
 
     } catch (error) {
       console.error('Error logging in:', error);
