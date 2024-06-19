@@ -1,6 +1,8 @@
 import { TouchableOpacity, StyleSheet, Text, View, TextInput } from 'react-native';
 import React, {useState} from 'react';
 import {database, addDoc, collection} from '../../config/firebaseconfig';
+import { Ionicons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
 
 export default function AddEstoque({navigation}){
@@ -31,7 +33,15 @@ export default function AddEstoque({navigation}){
       }
 
   return(
-    <View style={styles.container} >
+    <View style={styles.container}>
+    <View style={styles.topBar}>
+      <Ionicons name="chevron-back" size={30} color="white" style={styles.seta}
+        onPress={() => navigation.navigate('Home')}
+      />
+        <Text style={styles.txtEstoque}> ADD Estoque </Text>
+      <Feather name="box" size={60} color="white"  style={styles.icon}/> 
+    </View>
+    <View style={styles.containerB} >
         <Text style={styles.title}> Estoque </Text>
         <Text> ID produto: </Text>
         <TextInput
@@ -75,17 +85,50 @@ export default function AddEstoque({navigation}){
           value={newcategoria}
           onChangeText={setNewcategoria}
         />
+        <View style={styles.btnss}>
         <TouchableOpacity style={styles.btnsave} 
-          onPress={() => {addTask()}}
-        >
+          onPress={() => {addTask()}} >
           <Text style={styles.txtbtnsave}> Salvar </Text>
         </TouchableOpacity>
+        
+        <TouchableOpacity onPress={() => { deleteTask(item.id) }} style={styles.btnsave}>
+        <Text style={styles.txtbtnsave}> excluir </Text>
+        </TouchableOpacity>
+        </View>
+    </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+   container: {
+    flex: 1,
+    backgroundColor: '#ffff',
+  },
+  seta:{
+    flex: 1,
+    position: 'absolute',
+    paddingLeft: 30,
+    top: 25
+  },
+  txtEstoque:{
+    color: '#fff',
+    textAlign: 'center',
+  },
+  icon:{
+    flex: 1,
+    position: 'absolute',
+    paddingLeft: 300,
+    top: 10
+  },
+  topBar:{
+    backgroundColor: '#093f88',
+    justifyContent: 'space-around',
+    width: 390,
+    height: 80,
+    top: 50,
+  },
+  containerB: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -123,5 +166,9 @@ const styles = StyleSheet.create({
     color: '#EFF1ED',
     fontSize: 16,
     fontWeight: 'bold',
-  }
+  },
+  btnss:{
+    flex: 1,
+    justifyContent: "space-between"
+  },
 })
