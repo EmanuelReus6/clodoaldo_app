@@ -6,7 +6,8 @@ import Home from './src/pages/Home';
 import Avisos from './src/pages/Avisos';
 import Perfil from './src/pages/Perfil';
 import Login from './src/pages/Login';
-import Fornecedor from './src/pages/Fornecedor'
+import Fornecedor from './src/pages/Fornecedor';
+import NovoUsuario from './src/pages/NovoUsuario';
 import Estoque from './src/pages/Estoque';
 import Entradas from './src/pages/Entradas';
 import Saidas from './src/pages/Saidas';
@@ -68,6 +69,7 @@ export default function App(){
           <Stack.Screen options={{headerShown:false}} name='Estoque' component={Estoque}/> 
           <Stack.Screen options={{headerShown:false}} name='Fornecedor' component={Fornecedor}/> 
           <Stack.Screen options={{headerShown:false}} name='Entradas' component={Entradas}/> 
+          <Stack.Screen options={{headerShown:false}} name='NovoUsuario' component={NovoUsuario}/> 
           <Stack.Screen options={{headerShown:false}} name='Saidas' component={Saidas}/> 
           <Stack.Screen options={{headerShown:false}} name='AddEstoque' component={AddEstoque}/> 
         </Stack.Navigator>
