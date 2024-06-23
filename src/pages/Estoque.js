@@ -131,14 +131,14 @@ const styles = StyleSheet.create({
   },
 
   txtitem:{
-    color: 'white',
+    color: 'black',
     fontSize:12,
-    marginLeft:97,
+    marginLeft:90,
     top: 13,
 
   },
   tasks:{
-    backgroundColor: '#093f88',
+    backgroundColor: '#cccccc',
     marginLeft:12,
     width: 290,
     height: 75,
