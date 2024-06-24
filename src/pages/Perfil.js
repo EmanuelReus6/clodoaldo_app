@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native';
 
 export default function Perfil({ navigation }) {
   return (
@@ -27,9 +27,9 @@ export default function Perfil({ navigation }) {
           placeholder="senha"
           placeholderTextColor="#000"
         />
-        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('NovoUsuario')}>
+        <Pressable style={styles.botao} onPress={() => navigation.navigate('NovoUsuario')}>
           <Text style={styles.txtBotao}>Novo Usuário</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     </View>
   );

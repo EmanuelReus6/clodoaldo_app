@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, FlatList} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import { database, doc, deleteDoc } from '../../config/firebaseconfig';
 import { onSnapshot, collection } from 'firebase/firestore';
@@ -29,6 +29,12 @@ export default function Estoque({navigation}) {
     deleteDoc(taskdocRef)
   }
 
+  function imagem(uri) {
+    return(
+      <Image style={styles.imgitem} source={{uri: uri}}/>
+    )
+  }
+
     return (
         <View style={styles.container}>
           <View style={styles.topBar}>
@@ -45,13 +51,14 @@ export default function Estoque({navigation}) {
             return(
               <View>
                 <View style={styles.tasks}>
+                {imagem(item.uri)}
                 <Text style={styles.txtitem}> 
                   Cod: {item.codigo}  Nome: {item.nome}</Text>
-                  <Text style={styles.txtitem}>Desc: {item.descricao}</Text>
+                <Text style={styles.txtitem}>Desc: {item.descricao}</Text>
                 <Text style={styles.txtitem}>Cat: {item.categoria}  Quantd: {item.quantidade}
                 </Text>
                 </View>
-
+                
                 <View style={styles.lixo}>
                 <TouchableOpacity onPress={() => { deleteTask(item.id) }}>
                   <Entypo name="trash" size={24} color="white"/>
@@ -124,14 +131,14 @@ const styles = StyleSheet.create({
   },
 
   txtitem:{
-    color: 'white',
+    color: 'black',
     fontSize:12,
-    marginLeft:97,
+    marginLeft:90,
     top: 13,
 
   },
   tasks:{
-    backgroundColor: '#093f88',
+    backgroundColor: '#cccccc',
     marginLeft:12,
     width: 290,
     height: 75,
@@ -146,5 +153,13 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  imgitem:{
+    height: 55,
+    width: 55,
+    position: 'absolute',
+    marginLeft: 10,
+    top: 10,
+    borderRadius:5,
   },
 });
