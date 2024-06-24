@@ -50,7 +50,19 @@ export default function Estoque({navigation}) {
           renderItem={({item}) => {
             return(
               <View>
-                <View style={styles.tasks}>
+                <TouchableOpacity onPress={()=> {
+                  navigation.navigate("AlterarEstoque",{
+                      codigo: item.codigo,
+                      categoria: item.categoria,
+                      descricao: item.descricao,
+                      minimo: item.minimo,
+                      nome: item.nome,
+                      quantidade: item.quantidade,
+                      uri: item.uri,
+                  })
+              }}>
+                <View style={styles.tasks}>               
+
                 {imagem(item.uri)}
                 <Text style={styles.txtitem}> 
                   Cod: {item.codigo}  Nome: {item.nome}</Text>
@@ -58,12 +70,29 @@ export default function Estoque({navigation}) {
                 <Text style={styles.txtitem}>Cat: {item.categoria}  Quantd: {item.quantidade}
                 </Text>
                 </View>
-                
+                </TouchableOpacity>
                 <View style={styles.lixo}>
                 <TouchableOpacity onPress={() => { deleteTask(item.id) }}>
                   <Entypo name="trash" size={24} color="white"/>
                 </TouchableOpacity>
+                
                 </View>
+
+{/*                 <Text
+              style={styles.txtdescription}
+              onPress={()=> {
+                  navigation.navigate("AlterarEstoque",{
+                      codigo: item.codigo,
+                      categoria: item.categoria,
+                      descricao: item.descricao,
+                      minimo: item.minimo,
+                      nome: item.nome,
+                      quantidade: item.quantidade,
+                      uri: item.uri,
+                  })
+              }}>
+                  {item.description}
+              </Text> */}
                 
               </View>
             )

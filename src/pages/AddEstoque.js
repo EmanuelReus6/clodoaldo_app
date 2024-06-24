@@ -13,6 +13,7 @@ export default function AddEstoque({navigation}){
   const [newquantidade, setNewquantidade] = useState(0)
   const [newquantminima, setNewquantminima] = useState(0)
   const [newcategoria, setNewcategoria] = useState(null)
+  const [newuri, setNewuri] = useState(null)
 
   function addTask(){
     const taskdocRef = collection(database, 'Produto')
@@ -23,6 +24,7 @@ export default function AddEstoque({navigation}){
       minimo: newquantminima,
       nome: newproduto,
       quantidade: newquantidade,
+      uri: newuri,
       status: true,
     })
     navigation.navigate('Estoque')
@@ -89,14 +91,17 @@ export default function AddEstoque({navigation}){
           value={newcategoria}
           onChangeText={setNewcategoria}
         />
+        <Text style={styles.inputext}> uri: </Text>
+        <TextInput
+          style={styles.input}
+          placeholder='Digite a url da imagem:'
+          value={newuri}
+          onChangeText={setNewuri}
+        />
         <View style={styles.btnss}>
         <Pressable style={styles.btnsave} 
           onPress={() => {addTask()}} >
           <Text style={styles.txtbtnsave}> Salvar </Text>
-        </Pressable>
-        
-        <Pressable onPress={() => { deleteTask(item.id) }} style={styles.btnsave}>
-        <Text style={styles.txtbtnsave}> excluir </Text>
         </Pressable>
         </View>
     </View>
