@@ -17,7 +17,6 @@ export default function Login({navigation}) {
 
     } catch (error) {
       console.error('Error logging in:', error);
-      //Alert.alert('Error', error.message);
       setError(true)
     }
   };
