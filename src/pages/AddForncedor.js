@@ -82,10 +82,6 @@ export default function AddFornecedor({navigation}){
           onPress={() => {addTask()}} >
           <Text style={styles.txtbtnsave}> Salvar </Text>
         </Pressable>
-        
-        <Pressable onPress={() => { deleteTask(item.id) }} style={styles.btnsave}>
-        <Text style={styles.txtbtnsave}> excluir </Text>
-        </Pressable>
         </View>
     </View>
     </View>
