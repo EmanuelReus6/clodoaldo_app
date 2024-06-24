@@ -52,6 +52,7 @@ export default function Estoque({navigation}) {
               <View>
                 <TouchableOpacity onPress={()=> {
                   navigation.navigate("AlterarEstoque",{
+                    id:item.id,
                       codigo: item.codigo,
                       categoria: item.categoria,
                       descricao: item.descricao,

@@ -10,10 +10,10 @@ export default function AlterarEstoque({navigation, route}) {
     const [quantminimaEdit, setquantminimaEdit] = useState(route.params.minimo)
     const [categoriaEdit, setcategoriaEdit] = useState(route.params.categoria)
     const [uriEdit, seturiEdit] = useState(route.params.uri)
-    const idTask = route.params.codigo
+    const idTask = route.params.id
     
-    function editTask(categoria, descricao,minimo,nome,quantidade,uri,codigo){
-        const taskdocRef = doc(database, 'Produto', codigo)
+    function editTask(categoria, descricao,minimo,nome,quantidade,uri,id){
+        const taskdocRef = doc(database, 'Produto', id)
         updateDoc(taskdocRef,{
             categoria: categoriaEdit,
             descricao: descricaoEdit,
@@ -68,5 +68,10 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         width: '40%',
         marginHorizontal: 5,
+    },
+    btntxtsave:{
+        color: '#EFF1ED',
+        fontSize: 16,
+        fontWeight: 'bold',
     },
 });
