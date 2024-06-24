@@ -7,21 +7,19 @@ import { Octicons } from '@expo/vector-icons';
 export default function AddFornecedor({navigation}){
 
   const [newcodigo, setNewcodigo] = useState(0)
-  const [newproduto, setNewproduto] = useState(null)
-  const [newdescricao, setNewdescricao] = useState(null)
-  const [newquantidade, setNewquantidade] = useState(0)
-  const [newquantminima, setNewquantminima] = useState(0)
-  const [newcategoria, setNewcategoria] = useState(null)
+  const [newnome, setNewnome] = useState(null)
+  const [newemail, setNewemail] = useState(null)
+  const [newendereco, setNewendereco] = useState(null)
+  const [newtelefone, setNewtelefone] = useState(0)
 
   function addTask(){
     const taskdocRef = collection(database, 'Fornecedor')
     addDoc(taskdocRef, {
-      codigo:   newcodigo,
-      categoria: newcategoria,
-      descricao: newdescricao,
-      minimo: newquantminima,
-      nome: newproduto,
-      quantidade: newquantidade,
+      codigo: newcodigo,
+      nome: newnome,
+      email: newemail,
+      endereco: newendereco,
+      telefone: newtelefone,
       status: true,
     })
     navigation.navigate('Fornecedor')
@@ -43,7 +41,7 @@ export default function AddFornecedor({navigation}){
         <Octicons name="people" size={60} color="white" style={styles.icon}/> 
     </View>
     <View style={styles.containerB} >
-        <Text style={styles.inputext}> ID produto: </Text>
+        <Text style={styles.inputext}> ID fornecedor: </Text>
         <TextInput
           style={styles.input}
           placeholder='Digite um numero:'
@@ -55,29 +53,29 @@ export default function AddFornecedor({navigation}){
         <TextInput
           style={styles.input}
           placeholder='Digite nome:'
-          value={newproduto}
-          onChangeText={setNewproduto}
+          value={newnome}
+          onChangeText={setNewnome}
         />
         <Text style={styles.inputext}> Email: </Text>
         <TextInput
           style={styles.input}
           placeholder='Digite email:'
-          value={newproduto}
-          onChangeText={setNewproduto}
+          value={newemail}
+          onChangeText={setNewemail}
         />
         <Text style={styles.inputext}> Endereço: </Text>
         <TextInput
           style={styles.input}
           placeholder='Digite endereço:'
-          value={newdescricao}
-          onChangeText={setNewdescricao}
+          value={newendereco}
+          onChangeText={setNewendereco}
         />
         <Text style={styles.inputext}> Telefone: </Text>
         <TextInput
           style={styles.input}
           placeholder='Digite telefone:'
-          value={newcategoria}
-          onChangeText={setNewcategoria}
+          value={newtelefone}
+          onChangeText={setNewtelefone}
         />
         <View style={styles.btnss}>
         <Pressable style={styles.btnsave} 
