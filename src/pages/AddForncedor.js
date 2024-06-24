@@ -51,24 +51,31 @@ export default function AddFornecedor({navigation}){
           onChangeText={setNewcodigo}
           keyboardType="numeric"
         />
+        <Text style={styles.inputext}> Nome: </Text>
+        <TextInput
+          style={styles.input}
+          placeholder='Digite nome:'
+          value={newproduto}
+          onChangeText={setNewproduto}
+        />
         <Text style={styles.inputext}> Email: </Text>
         <TextInput
           style={styles.input}
-          placeholder='email'
+          placeholder='Digite email:'
           value={newproduto}
           onChangeText={setNewproduto}
         />
         <Text style={styles.inputext}> Endereço: </Text>
         <TextInput
           style={styles.input}
-          placeholder='endereço'
+          placeholder='Digite endereço:'
           value={newdescricao}
           onChangeText={setNewdescricao}
         />
-        <Text style={styles.inputext}> Categoria: </Text>
+        <Text style={styles.inputext}> Telefone: </Text>
         <TextInput
           style={styles.input}
-          placeholder='Digite a categoria:'
+          placeholder='Digite telefone:'
           value={newcategoria}
           onChangeText={setNewcategoria}
         />
