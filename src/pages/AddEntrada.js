@@ -43,7 +43,9 @@ export default function AddEntrada({navigation}){
   function addverificado (){
     for (var i = 0; i < task2.length; i++){
       if (task2[i].codigo == newcodproduto){
-          var quant = task2[i].quantidade + newquantidade;
+          var quantnum = parseInt(task2[i].quantidade);
+          var quantnumnew = parseInt(newquantidade);
+          var quant = quantnum + quantnumnew;
           if (task2[i].codigo == newcodproduto){
           const taskdocRef = doc(database, 'Produto', task2[i].id)
         updateDoc(taskdocRef,{
