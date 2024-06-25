@@ -1,30 +1,79 @@
-import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Pressable, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { database, doc, getDoc } from '../config/firebaseconfig';
+import { FontAwesome5 } from '@expo/vector-icons';
 
-export default function Perfil({ navigation }) {
+export default function Perfil({ route, navigation }) {
+  const userId = route?.params?.userId ?? '';
+  const [email, setEmail] = useState('');
+  const [nome, setNome] = useState('');
+  const [papel, setPapel] = useState('');
+  const [senha, setSenha] = useState('');
+
+  useEffect(() => {
+    if (userId) {
+      getUserData();
+    }
+  }, [userId]);
+
+  async function getUserData() {
+    try {
+      const userDocRef = doc(database, 'Usuario', userId);
+      const userDoc = await getDoc(userDocRef);
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        setEmail(userData.email);
+        setNome(userData.nome);
+        setPapel(userData.papel);
+        setSenha(userData.senha);
+      } else {
+        console.log('No such document!');
+      }
+    } catch (error) {
+      console.error("Error fetching document: ", error);
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
         <Text style={styles.txtAvisos}> Perfil </Text>
       </View>
       <View style={styles.perfil}>
+      <FontAwesome5 
+          style={styles.relacao} 
+          name="users" 
+          size={24} 
+          color= '#093f88'
+          onPress={() => navigation.navigate('RelacaodeUsuario')}
+        />
         <TextInput
           style={styles.input}
           placeholder="email"
+          value={email}
+          onChangeText={setEmail}
           placeholderTextColor="#000"
         />
         <TextInput
           style={styles.input}
           placeholder="nome"
+          value={nome}
+          onChangeText={setNome}
           placeholderTextColor="#000"
         />
         <TextInput
           style={styles.input}
           placeholder="papel"
+          value={papel}
+          onChangeText={setPapel}
           placeholderTextColor="#000"
         />
         <TextInput
           style={styles.input}
           placeholder="senha"
+          value={senha}
+          onChangeText={setSenha}
+          secureTextEntry={true}
           placeholderTextColor="#000"
         />
         <Pressable style={styles.botao} onPress={() => navigation.navigate('NovoUsuario')}>

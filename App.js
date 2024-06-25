@@ -7,7 +7,7 @@ import Avisos from './src/pages/Avisos';
 import Perfil from './src/pages/Perfil';
 import Login from './src/pages/Login';
 import Fornecedor from './src/pages/Fornecedor';
-import NovoUsuario from './src/pages/NovoUsuario';
+import NovoUsuario from './src/pages/AddUsuario';
 import Estoque from './src/pages/Estoque';
 import Entradas from './src/pages/Entradas';
 import Saidas from './src/pages/Saidas';
@@ -15,6 +15,8 @@ import AddEstoque from './src/pages/AddEstoque';
 import AddFornecedor from './src/pages/AddForncedor';
 import AlterarEstoque from './src/pages/AlterarEstoque';
 import AddEntrada from './src/pages/AddEntrada';
+import RelacaodeUsuario from './src/pages/RelacaodeUsuario';
+import AlterarUsuario from './src/pages/AlterarUsuario';
 
 import { Ionicons } from '@expo/vector-icons';
 
@@ -78,7 +80,8 @@ export default function App(){
           <Stack.Screen options={{headerShown:false}} name='AddFornecedor' component={AddFornecedor}/> 
           <Stack.Screen options={{headerShown:false}} name='AlterarEstoque' component={AlterarEstoque}/> 
           <Stack.Screen options={{headerShown:false}} name='AddEntrada' component={AddEntrada}/> 
-
+          <Stack.Screen options={{headerShown:false}} name='RelacaodeUsuario' component={RelacaodeUsuario}/>
+          <Stack.Screen options={{headerShown:false}} name='AlterarUsuario' component={AlterarUsuario}/>  
         </Stack.Navigator>
     </NavigationContainer>
   );
