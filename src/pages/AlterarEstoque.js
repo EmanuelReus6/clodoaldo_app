@@ -4,7 +4,7 @@ import { database, updateDoc, doc } from '../config/firebaseconfig';
 
 export default function AlterarEstoque({navigation, route}) {
     
-    const [produtoEdit, setprodutoEdit]  = useState(route.params.nome)
+    const [nomeEdit, setNomeEdit]  = useState(route.params.nome)
     const [descricaoEdit, setdescricaoEdit] = useState(route.params.descricao)
     const [quantidadeEdit, setquantidadeEdit] = useState(route.params.quantidade)
     const [quantminimaEdit, setquantminimaEdit] = useState(route.params.minimo)
@@ -15,10 +15,10 @@ export default function AlterarEstoque({navigation, route}) {
     function editTask(categoria, descricao,minimo,nome,quantidade,uri,id){
         const taskdocRef = doc(database, 'Produto', id)
         updateDoc(taskdocRef,{
-            categoria: categoriaEdit,
+            nome: nomeEdit,
             descricao: descricaoEdit,
+            categoria: categoriaEdit,
             minimo: quantminimaEdit,
-            nome: produtoEdit,
             quantidade: quantidadeEdit,
             uri: uriEdit,
         })
@@ -28,7 +28,12 @@ export default function AlterarEstoque({navigation, route}) {
     return (
     <View style={styles.container}>
         <Text>Task</Text>
-        <TextInput style={styles.inputTask} placeholder='Ex Estudar' value={produtoEdit} onChangeText={setprodutoEdit}/>
+        <TextInput style={styles.inputTask} 
+            placeholder=''
+            placeholderTextColor={'#8b8b8c'}
+            value={produtoEdit}
+            onChangeText={setNomeEdit}
+        />
     <TouchableOpacity style={styles.btnsave} onPress={() => editTask(produtoEdit, idTask)} >
     <Text style={styles.btntxtsave}>Save</Text>
     </TouchableOpacity>
