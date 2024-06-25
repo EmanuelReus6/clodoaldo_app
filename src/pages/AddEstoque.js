@@ -92,6 +92,13 @@ export default function AddEstoque({navigation}){
           value={newdescricao}
           onChangeText={setNewdescricao}
         />
+        <Text style={styles.inputext}> Categoria: </Text>
+        <TextInput
+          style={styles.input}
+          placeholder='Digite a categoria:'
+          value={newcategoria}
+          onChangeText={setNewcategoria}
+        />
         <Text style={styles.inputext}> Quantidade: </Text>
         <TextInput
           style={styles.input}
@@ -108,17 +115,10 @@ export default function AddEstoque({navigation}){
           onChangeText={setNewquantminima}
           keyboardType="numeric"
         />
-        <Text style={styles.inputext}> Categoria: </Text>
-        <TextInput
-          style={styles.input}
-          placeholder='Digite a categoria:'
-          value={newcategoria}
-          onChangeText={setNewcategoria}
-        />
         <Text style={styles.inputext}> uri: </Text>
         <TextInput
           style={styles.input}
-          placeholder='Digite a url da imagem:'
+          placeholder='Digite a uri da imagem:'
           value={newuri}
           onChangeText={setNewuri}
         />
