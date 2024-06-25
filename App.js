@@ -13,8 +13,9 @@ import Entradas from './src/pages/Entradas';
 import Saidas from './src/pages/Saidas';
 import AddEstoque from './src/pages/AddEstoque';
 import AddFornecedor from './src/pages/AddForncedor';
-import AlterarEstoque from './src/pages/AlterarEstoque';
 import AddEntrada from './src/pages/AddEntrada';
+import AlterarEstoque from './src/pages/AlterarEstoque';
+import AlterarFornecedor from './src/pages/AlterarFornecedor';
 
 import { Ionicons } from '@expo/vector-icons';
 
@@ -76,9 +77,9 @@ export default function App(){
           <Stack.Screen options={{headerShown:false}} name='Saidas' component={Saidas}/> 
           <Stack.Screen options={{headerShown:false}} name='AddEstoque' component={AddEstoque}/> 
           <Stack.Screen options={{headerShown:false}} name='AddFornecedor' component={AddFornecedor}/> 
-          <Stack.Screen options={{headerShown:false}} name='AlterarEstoque' component={AlterarEstoque}/> 
           <Stack.Screen options={{headerShown:false}} name='AddEntrada' component={AddEntrada}/> 
-
+          <Stack.Screen options={{headerShown:false}} name='AlterarEstoque' component={AlterarEstoque}/> 
+          <Stack.Screen options={{headerShown:false}} name='AlterarFornecedor' component={AlterarFornecedor}/> 
         </Stack.Navigator>
     </NavigationContainer>
   );
