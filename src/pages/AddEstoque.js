@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, Text, View, TextInput, KeyboardAvoidingView, ScrollView  } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {database, addDoc, collection} from '../config/firebaseconfig';
+import {onSnapshot} from 'firebase/firestore';
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 
@@ -14,8 +15,27 @@ export default function AddEstoque({navigation}){
   const [newquantminima, setNewquantminima] = useState(0)
   const [newcategoria, setNewcategoria] = useState(null)
   const [newuri, setNewuri] = useState(null)
+  const [task2, setTask2] = useState([])
+
+  useEffect (() => {
+    const tasksCollection2 = collection(database, 'Produto')
+    const listen = onSnapshot(tasksCollection2, (query) => {
+      const list2 = []
+      query.forEach((doc) => {
+        list2.push({...doc.data(), id: doc.id})
+      })
+      setTask2(list2)
+    })
+    return ()  => listen();
+  }, [])
 
   function addTask(){
+    var bool = "False";
+    for (var i = 0; i < task2.length; i++){
+      if (task2[i].codigo == newcodigo){
+        var bool = "True";}
+    }
+    if (bool == "False"){
     const taskdocRef = collection(database, 'Produto')
     addDoc(taskdocRef, {
       codigo:   newcodigo,
@@ -28,6 +48,10 @@ export default function AddEstoque({navigation}){
       status: true,
     })
     navigation.navigate('Estoque')
+  }
+    else{
+      alert("Produto já existe");
+    }
 }
     function deleteTask (id) {
        const taskdocRef = doc(database, 'Produto', id)
