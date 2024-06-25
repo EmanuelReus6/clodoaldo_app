@@ -22,7 +22,9 @@ export default function Entradas({navigation}) {
   }, [])
 
   function tipoaviso(quantidade, minimo, nome){
-    if (quantidade < minimo && quantidade > 0){
+    var quantid = parseInt(quantidade);
+    var minin = parseInt(minimo);
+    if (quantid < minin && quantid > 0){
       return( 
         <View style={styles.avisoA}>
           <AntDesign name="exclamationcircleo" size={40} color="black" style={styles.icone}/>
@@ -30,7 +32,7 @@ export default function Entradas({navigation}) {
         </View>
       );
     }
-    if (quantidade <= 0){
+    if (quantid <= 0){
         return( 
           <View style={styles.avisoV}>
             <AntDesign name="warning" size={40} color="black" style={styles.icone}/>  
@@ -52,7 +54,7 @@ export default function Entradas({navigation}) {
                   <FlatList
                     data={task}
                     renderItem={({item}) => {
-                      if (item.quantidade < item.minimo){
+                      if (parseInt(item.quantidade) < parseInt(item.minimo)){
                       return(
                         <View style={styles.viewav}>
                           {tipoaviso(item.quantidade, item.minimo, item.nome)}

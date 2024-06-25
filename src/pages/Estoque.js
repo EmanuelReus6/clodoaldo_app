@@ -66,7 +66,7 @@ export default function Estoque({navigation}) {
 
                 {imagem(item.uri)}
                 <Text style={styles.txtitem}> 
-                  Cod: {item.codigo}  Nome: {item.nome}</Text>
+                  Cod: {item.codigo}       Nome: {item.nome}</Text>
                 <Text style={styles.txtitem}>Desc: {item.descricao}</Text>
                 <Text style={styles.txtitem}>Cat: {item.categoria}  Quantd: {item.quantidade}
                 </Text>

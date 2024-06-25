@@ -40,12 +40,17 @@ export default function Entradas({navigation}) {
   function deleteadd (id,qtdEnt,codprod){
     for (var i = 0; i < task2.length; i++){
       if (task2[i].codigo == codprod){
-          var quant = task2[i].quantidade - qtdEnt;
+          var quantnum = parseInt(task2[i].quantidade);
+          var qtdentnum = parseInt(qtdEnt);
+          var quant = quantnum - qtdEnt;
           const taskdocRef = doc(database, 'Produto', task2[i].id)
         updateDoc(taskdocRef,{
             quantidade: quant 
         })
         deleteTask(id) 
+      }
+      else{
+        deleteTask(id)
       }
     }
   }

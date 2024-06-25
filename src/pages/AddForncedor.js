@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View, TextInput, KeyboardAvoidingView, ScrollView  } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, View, TextInput, KeyboardAvoidingView, ScrollView  } from 'react-native';
 import React, {useState} from 'react';
 import {database, addDoc, collection} from '../config/firebaseconfig';
 import { Ionicons } from '@expo/vector-icons';
@@ -34,9 +34,9 @@ export default function AddFornecedor({navigation}){
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
     <View style={styles.container}>
     <View style={styles.topBar}>
-    <Pressable onPress={() => navigation.navigate('Fornecedor')} style={styles.seta}>
+    <TouchableOpacity onPress={() => navigation.navigate('Fornecedor')} style={styles.seta}>
        <Ionicons name="chevron-back" size={30} color="white" />
-     </Pressable>
+     </TouchableOpacity>
         <Text style={styles.txtEstoque}> Fornecedor </Text>
         <Octicons name="people" size={60} color="white" style={styles.icon}/> 
     </View>
@@ -78,10 +78,10 @@ export default function AddFornecedor({navigation}){
           onChangeText={setNewtelefone}
         />
         <View style={styles.btnss}>
-        <Pressable style={styles.btnsave} 
+        <TouchableOpacity style={styles.btnsave} 
           onPress={() => {addTask()}} >
           <Text style={styles.txtbtnsave}> Salvar </Text>
-        </Pressable>
+        </TouchableOpacity>
         </View>
     </View>
     </View>
