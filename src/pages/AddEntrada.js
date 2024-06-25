@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text, View, TextInput, KeyboardAvoidingView, ScrollView  } from 'react-native';
 import React, {useState, useEffect} from 'react';
-import {database, addDoc, collection, doc, updateDoc} from '../../config/firebaseconfig';
+import {database, addDoc, collection, doc, updateDoc} from '../config/firebaseconfig';
 import {onSnapshot} from 'firebase/firestore';
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';

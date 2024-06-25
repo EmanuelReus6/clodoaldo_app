@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image} from 'react-native';
 import React, {useState, useEffect} from 'react';
-import { database, doc, deleteDoc } from '../../config/firebaseconfig';
+import { database, doc, deleteDoc } from '../config/firebaseconfig';
 import { onSnapshot, collection } from 'firebase/firestore';
 import Entypo from '@expo/vector-icons/Entypo';
 import { Ionicons } from '@expo/vector-icons';
