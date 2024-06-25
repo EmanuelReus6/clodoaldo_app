@@ -44,13 +44,24 @@ export default function Fornecedor({navigation}) {
           renderItem={({item}) => {
             return(
               <View>
-                <View style={styles.tasks}>
+                <TouchableOpacity onPress={()=> {
+                  navigation.navigate("AlterarFornecedor",{
+                    id:item.id,
+                      codigo: item.codigo,
+                      nome: item.nome,
+                      email: item.email,
+                      endereco: item.endereco,
+                      telefone: item.telefone,
+                  })
+              }}>
+                <View style={styles.tasks}>               
                 <Text style={styles.txtitem}> 
                   Cod: {item.codigo}       Nome: {item.nome}</Text>
                 <Text style={styles.txtitem}>Email: {item.email}</Text>
                 <Text style={styles.txtitem}>Endereço: {item.endereco}</Text>
                 <Text style={styles.txtitem}>Telefone: {item.telefone}</Text>
                 </View>
+                </TouchableOpacity>
                 
                 <View style={styles.lixo}>
                 <TouchableOpacity onPress={() => { deleteTask(item.id) }}>
