@@ -16,8 +16,8 @@ export default function AlterarFornecedor({navigation, route}) {
         updateDoc(taskdocRef,{
             nome: nomeEdit,
             email: emailEdit,
-            endereco: telefoneEdit,
-            telefone: nomeEdit,
+            endereco: enderecoEdit,
+            telefone: telefoneEdit,
         })
         navigation.navigate('Fornecedor')
     }
