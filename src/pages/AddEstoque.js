@@ -53,19 +53,15 @@ export default function AddEstoque({navigation}){
       alert("Produto já existe");
     }
 }
-    function deleteTask (id) {
-       const taskdocRef = doc(database, 'Produto', id)
-        deleteDoc(taskdocRef)
-      }
 
   return(
     <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
     <View style={styles.container}>
     <View style={styles.topBar}>
-    <Pressable onPress={() => navigation.navigate('Estoque')} style={styles.seta}>
-       <Ionicons name="chevron-back" size={30} color="white" />
-     </Pressable>
+       <Ionicons name="chevron-back" size={30} color="white" style={styles.seta}
+        onPress={() => navigation.navigate('Estoque') }
+        />
         <Text style={styles.txtEstoque}> Produto </Text>
       <Feather name="box" size={60} color="white"  style={styles.icon}/> 
     </View>
@@ -176,7 +172,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 10,
     marginTop: 10,
-    borderRadius:10,
     paddingHorizontal: 10,
     borderColor: '#1D3557',
     borderBottomWidth: 1,

@@ -27,7 +27,7 @@ export default function AlterarEstoque({navigation, route}) {
 
     return (
     <View style={styles.container}>
-        <Text>Task</Text>
+        <Text>Alterar Estoque</Text>
         <TextInput style={styles.inputTask} 
             placeholder='Nome'
             placeholderTextColor={'#8b8b8c'}
@@ -85,7 +85,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 10,
     marginTop: 10,
-    borderRadius:10,
     paddingHorizontal: 10,
     borderColor: '#1D3557',
     borderBottomWidth: 1,

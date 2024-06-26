@@ -61,9 +61,9 @@ export default function AddEntrada({navigation}){
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
     <View style={styles.container}>
     <View style={styles.topBar}>
-    <Pressable onPress={() => navigation.navigate('Entrada')} style={styles.seta}>
-       <Ionicons name="chevron-back" size={30} color="white" />
-     </Pressable>
+    <Ionicons name="chevron-back" size={30} color="white" style={styles.seta}
+              onPress={() => navigation.navigate('Home')}
+            />
         <Text style={styles.txtEstoque}> Entrada </Text>
       <MaterialCommunityIcons name="truck-plus-outline" size={60} color="white"  style={styles.icon}/>
     </View>

@@ -60,7 +60,7 @@ function mostrarUsuario(){
           <Text style={styles.txtBotao}>Novo Usuário</Text>
         </Pressable>
         <Pressable style={styles.botao2} onPress={() => navigation.navigate('Login')}>
-          <Text style={styles.txtBotao}>Loggout</Text>
+          <Text style={styles.txtBotao}>Logout</Text>
         </Pressable>
       </View>
       </View>
@@ -87,7 +87,7 @@ function mostrarUsuario(){
           placeholderTextColor="#000"
         />
         <Pressable style={styles.botao3} onPress={() => navigation.navigate('Login')}>
-          <Text style={styles.txtBotao}>Loggout</Text>
+          <Text style={styles.txtBotao}>Logout</Text>
         </Pressable>
       </View>
       </View>
