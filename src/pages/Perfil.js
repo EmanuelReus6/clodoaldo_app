@@ -59,6 +59,9 @@ function mostrarUsuario(){
         <Pressable style={styles.botao} onPress={() => navigation.navigate('AddUsuario')}>
           <Text style={styles.txtBotao}>Novo Usuário</Text>
         </Pressable>
+        <Pressable style={styles.botao2} onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.txtBotao}>Loggout</Text>
+        </Pressable>
       </View>
       </View>
         );
@@ -83,6 +86,9 @@ function mostrarUsuario(){
           placeholder={task2[i].papel}
           placeholderTextColor="#000"
         />
+        <Pressable style={styles.botao3} onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.txtBotao}>Loggout</Text>
+        </Pressable>
       </View>
       </View>
         );
@@ -108,7 +114,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffff',
   },
   viewmenor: {
-    top:258,
+    top:290,
 
 
   },
@@ -148,6 +154,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 25,
     marginTop: 20,
+    marginRight: 170,
   },
   txtBotao: {
     color: '#fff',
@@ -169,5 +176,25 @@ const styles = StyleSheet.create({
     height:150,
     width:150,
     bottom:50,
+  },
+  botao2: {
+    backgroundColor: '#021D43',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 150,
+    height: 50,
+    borderRadius: 25,
+    marginTop: 20,
+    marginLeft: 170,
+    bottom:69,
+  },
+  botao3: {
+    backgroundColor: '#021D43',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 150,
+    height: 50,
+    borderRadius: 25,
+    marginTop: 20,
   },
 });
