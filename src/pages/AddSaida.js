@@ -6,13 +6,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
-export default function AddEntrada({navigation}){
+export default function AddSaida({navigation}){
   const [task2, setTask2] = useState([])
   const [newcodigo, setNewcodigo] = useState(0)
-  const [newcodfornecedor, setNewcodfornecedor] = useState(0)
   const [newcodproduto, setNewcodproduto] = useState(0)
   const [newdescricao, setNewdescricao] = useState(null)
   const [newquantidade, setNewquantidade] = useState(0)
+  const [newsetor, setNewsetor] = useState(null)
 
 
   useEffect (() => {
@@ -28,16 +28,16 @@ export default function AddEntrada({navigation}){
   }, [])
 
   function addTask(){
-    const taskdocRef = collection(database, 'Entrada')
+    const taskdocRef = collection(database, 'Saida')
     addDoc(taskdocRef, {
       codigo:   newcodigo,
-      codfornecedor: newcodfornecedor,
       codproduto: newcodproduto,
       descricao: newdescricao,
       quantidade: newquantidade,
+      setor: newsetor,
       status: true,
     })
-    navigation.navigate('Entradas')
+    navigation.navigate('Saidas')
 }
 
   function addverificado (){
@@ -45,7 +45,7 @@ export default function AddEntrada({navigation}){
       if (task2[i].codigo == newcodproduto){
           var quantnum = parseInt(task2[i].quantidade);
           var quantnumnew = parseInt(newquantidade);
-          var quant = quantnum + quantnumnew;
+          var quant = quantnum - quantnumnew;
           if (task2[i].codigo == newcodproduto){
           const taskdocRef = doc(database, 'Produto', task2[i].id)
         updateDoc(taskdocRef,{
@@ -61,11 +61,11 @@ export default function AddEntrada({navigation}){
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
     <View style={styles.container}>
     <View style={styles.topBar}>
-    <Pressable onPress={() => navigation.navigate('Entrada')} style={styles.seta}>
+    <Pressable onPress={() => navigation.navigate('Saidas')} style={styles.seta}>
        <Ionicons name="chevron-back" size={30} color="white" />
      </Pressable>
-        <Text style={styles.txtEstoque}> Entrada </Text>
-      <MaterialCommunityIcons name="truck-plus-outline" size={60} color="white"  style={styles.icon}/>
+        <Text style={styles.txtEstoque}> Saida </Text>
+        <MaterialCommunityIcons name="truck-minus-outline" size={60} color="white"  style={styles.icon}/>
     </View>
     <View style={styles.containerB} >
         <Text style={styles.inputext}> Codigo: </Text>
@@ -74,14 +74,6 @@ export default function AddEntrada({navigation}){
           placeholder='Digite um numero:'
           value={newcodigo}
           onChangeText={setNewcodigo}
-          keyboardType="numeric"
-        />
-        <Text style={styles.inputext}> Codigo Fornecedor: </Text>
-        <TextInput
-          style={styles.input}
-          placeholder='Digite um numero'
-          value={newcodfornecedor}
-          onChangeText={setNewcodfornecedor}
           keyboardType="numeric"
         />
         <Text style={styles.inputext}> Codigo Produto: </Text>
@@ -108,6 +100,14 @@ export default function AddEntrada({navigation}){
           onChangeText={setNewquantidade}
           keyboardType="numeric"
         />
+        <Text style={styles.inputext}> Setor: </Text>
+        <TextInput
+          style={styles.input}
+          placeholder='Setor'
+          value={newsetor}
+          onChangeText={setNewsetor}
+        />
+
 
         <View style={styles.btnss}>
         <Pressable style={styles.btnsave} 

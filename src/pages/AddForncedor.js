@@ -1,16 +1,31 @@
 import { TouchableOpacity, StyleSheet, Text, View, TextInput, KeyboardAvoidingView, ScrollView  } from 'react-native';
-import React, {useState} from 'react';
-import {database, addDoc, collection} from '../config/firebaseconfig';
+import React, {useState, useEffect} from 'react';
+import {database, addDoc, collection, doc} from '../config/firebaseconfig';
+import {onSnapshot} from 'firebase/firestore';
 import { Ionicons } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 
 export default function AddFornecedor({navigation}){
-
+  const [task2, setTask2] = useState([])
   const [newcodigo, setNewcodigo] = useState(0)
   const [newnome, setNewnome] = useState(null)
   const [newemail, setNewemail] = useState(null)
   const [newendereco, setNewendereco] = useState(null)
   const [newtelefone, setNewtelefone] = useState(0)
+
+
+
+  useEffect (() => {
+    const tasksCollection2 = collection(database, 'Fornecedor')
+    const listen = onSnapshot(tasksCollection2, (query) => {
+      const list2 = []
+      query.forEach((doc) => {
+        list2.push({...doc.data(), id: doc.id})
+      })
+      setTask2(list2)
+    })
+    return ()  => listen();
+  }, [])
 
   function addTask(){
     const taskdocRef = collection(database, 'Fornecedor')
@@ -24,10 +39,24 @@ export default function AddFornecedor({navigation}){
     })
     navigation.navigate('Fornecedor')
 }
-    function deleteTask (id) {
-       const taskdocRef = doc(database, 'Fornecedor', id)
-        deleteDoc(taskdocRef)
-      }
+
+    
+      function addverificado (){
+        var bool = "True";
+        for (var i = 0; i < task2.length; i++){
+          if (task2[i].codigo == newcodigo){
+              var bool = "False";
+
+             }
+          }
+          if (bool == "True"){
+            addTask()
+          }
+          else{
+            alert("O Fornecedor já existe");
+          }
+        }
+      
 
   return(
     <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
@@ -79,7 +108,7 @@ export default function AddFornecedor({navigation}){
         />
         <View style={styles.btnss}>
         <TouchableOpacity style={styles.btnsave} 
-          onPress={() => {addTask()}} >
+          onPress={() => {addverificado()}} >
           <Text style={styles.txtbtnsave}> Salvar </Text>
         </TouchableOpacity>
         </View>

@@ -16,6 +16,8 @@ import AddFornecedor from './src/pages/AddForncedor';
 import AddEntrada from './src/pages/AddEntrada';
 import AlterarEstoque from './src/pages/AlterarEstoque';
 import AlterarFornecedor from './src/pages/AlterarFornecedor';
+import AddSaida from './src/pages/AddSaida';
+
 
 import { Ionicons } from '@expo/vector-icons';
 
@@ -79,7 +81,8 @@ export default function App(){
           <Stack.Screen options={{headerShown:false}} name='AddFornecedor' component={AddFornecedor}/> 
           <Stack.Screen options={{headerShown:false}} name='AddEntrada' component={AddEntrada}/> 
           <Stack.Screen options={{headerShown:false}} name='AlterarEstoque' component={AlterarEstoque}/> 
-          <Stack.Screen options={{headerShown:false}} name='AlterarFornecedor' component={AlterarFornecedor}/> 
+          <Stack.Screen options={{headerShown:false}} name='AlterarFornecedor' component={AlterarFornecedor}/>
+          <Stack.Screen options={{headerShown:false}} name='AddSaida' component={AddSaida}/>  
         </Stack.Navigator>
     </NavigationContainer>
   );
