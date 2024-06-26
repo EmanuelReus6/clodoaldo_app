@@ -1,45 +1,39 @@
-import { StyleSheet, Text, View, TextInput, Pressable, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Pressable, Image } from 'react-native';
 import React, { useState, useEffect } from 'react';
-import { database, doc, getDoc } from '../config/firebaseconfig';
+import { database, doc, getDoc, collection } from '../config/firebaseconfig';
+import {onSnapshot} from 'firebase/firestore';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { getAuth } from 'firebase/auth';
 
-export default function Perfil({ route, navigation }) {
-  const userId = route?.params?.userId ?? '';
-  const [email, setEmail] = useState('');
-  const [nome, setNome] = useState('');
-  const [papel, setPapel] = useState('');
-  const [senha, setSenha] = useState('');
+export default function Perfil({navigation}) {
+  const [task2, setTask2] = useState([])
 
-  useEffect(() => {
-    if (userId) {
-      getUserData();
-    }
-  }, [userId]);
 
-  async function getUserData() {
-    try {
-      const userDocRef = doc(database, 'Usuario', userId);
-      const userDoc = await getDoc(userDocRef);
-      if (userDoc.exists()) {
-        const userData = userDoc.data();
-        setEmail(userData.email);
-        setNome(userData.nome);
-        setPapel(userData.papel);
-        setSenha(userData.senha);
-      } else {
-        console.log('No such document!');
-      }
-    } catch (error) {
-      console.error("Error fetching document: ", error);
-    }
-  }
+  useEffect (() => {
+    const tasksCollection2 = collection(database, 'Usuario')
+    const listen = onSnapshot(tasksCollection2, (query) => {
+      const list2 = []
+      query.forEach((doc) => {
+        list2.push({...doc.data(), id: doc.id})
+      })
+      setTask2(list2)
+    })
+    return ()  => listen();
+  }, [])
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.topBar}>
-        <Text style={styles.txtAvisos}> Perfil </Text>
-      </View>
+function mostrarUsuario(){
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  if (user !== null) {
+    const email2 = user.email;
+    for (var i = 0; i < task2.length; i++){
+      if(task2[i].email == email2){
+        if (task2[i].papel == "admin"){
+        return(
+          <View style={styles.viewmenor}>
       <View style={styles.perfil}>
+      <Image style={styles.imagem} source={{uri: task2[i].uri}}/>
       <FontAwesome5 
           style={styles.relacao} 
           name="users" 
@@ -49,37 +43,61 @@ export default function Perfil({ route, navigation }) {
         />
         <TextInput
           style={styles.input}
-          placeholder="email"
-          value={email}
-          onChangeText={setEmail}
+          placeholder={task2[i].email}
           placeholderTextColor="#000"
         />
         <TextInput
           style={styles.input}
-          placeholder="nome"
-          value={nome}
-          onChangeText={setNome}
+          placeholder={task2[i].nome}
           placeholderTextColor="#000"
         />
         <TextInput
           style={styles.input}
-          placeholder="papel"
-          value={papel}
-          onChangeText={setPapel}
+          placeholder={task2[i].papel}
           placeholderTextColor="#000"
         />
-        <TextInput
-          style={styles.input}
-          placeholder="senha"
-          value={senha}
-          onChangeText={setSenha}
-          secureTextEntry={true}
-          placeholderTextColor="#000"
-        />
-        <Pressable style={styles.botao} onPress={() => navigation.navigate('NovoUsuario')}>
+        <Pressable style={styles.botao} onPress={() => navigation.navigate('AddUsuario')}>
           <Text style={styles.txtBotao}>Novo Usuário</Text>
         </Pressable>
       </View>
+      </View>
+        );
+      }
+      else{
+        return(
+          <View style={styles.viewmenor}>
+      <View style={styles.perfil}>
+      <Image style={styles.imagem2} source={{uri: task2[i].uri}}/>
+        <TextInput
+          style={styles.input}
+          placeholder={task2[i].email}
+          placeholderTextColor="#000"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder={task2[i].nome}
+          placeholderTextColor="#000"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder={task2[i].papel}
+          placeholderTextColor="#000"
+        />
+      </View>
+      </View>
+        );
+      }
+      }
+      }
+    }
+  }
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.topBar}>
+        <Text style={styles.txtAvisos}> Perfil </Text>
+      </View>
+      {mostrarUsuario()}
     </View>
   );
 }
@@ -88,6 +106,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffff',
+  },
+  viewmenor: {
+    top:258,
+
+
   },
   txtAvisos: {
     color: '#fff',
@@ -130,5 +153,21 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  relacao: {
+    height:50,
+    width:50,
+    marginLeft:330,
+  },
+  imagem: {
+    borderRadius:100,
+    height:150,
+    width:150,
+  },
+  imagem2: {
+    borderRadius:100,
+    height:150,
+    width:150,
+    bottom:50,
   },
 });

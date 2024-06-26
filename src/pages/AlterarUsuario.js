@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { database, updateDoc, doc } from '../config/firebaseconfig';
 
 
-export default function AlterarFornecedor({navigation, route}) {
+export default function AlterarUsuario({navigation, route}) {
 
     const [nomeEdit, setNomeEdit]  = useState(route.params.nome)
     const [emailEdit, setEmailEdit] = useState(route.params.email)

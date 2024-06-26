@@ -17,7 +17,9 @@ import AddEntrada from './src/pages/AddEntrada';
 import AlterarEstoque from './src/pages/AlterarEstoque';
 import AlterarFornecedor from './src/pages/AlterarFornecedor';
 import AddSaida from './src/pages/AddSaida';
-
+import RelacaodeUsuario from './src/pages/RelacaodeUsuario';
+import AlterarUsuario from './src/pages/AlterarUsuario';
+import AddUsuario from './src/pages/AddUsuario';
 
 import { Ionicons } from '@expo/vector-icons';
 
@@ -82,7 +84,10 @@ export default function App(){
           <Stack.Screen options={{headerShown:false}} name='AddEntrada' component={AddEntrada}/> 
           <Stack.Screen options={{headerShown:false}} name='AlterarEstoque' component={AlterarEstoque}/> 
           <Stack.Screen options={{headerShown:false}} name='AlterarFornecedor' component={AlterarFornecedor}/>
-          <Stack.Screen options={{headerShown:false}} name='AddSaida' component={AddSaida}/>  
+          <Stack.Screen options={{headerShown:false}} name='AddSaida' component={AddSaida}/> 
+          <Stack.Screen options={{headerShown:false}} name='RelacaodeUsuario' component={RelacaodeUsuario}/>
+          <Stack.Screen options={{headerShown:false}} name='AlterarUsuario' component={AlterarUsuario}/>
+          <Stack.Screen options={{headerShown:false}} name='AddUsuario' component={AddUsuario}/>            
         </Stack.Navigator>
     </NavigationContainer>
   );

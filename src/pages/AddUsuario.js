@@ -1,15 +1,29 @@
 import { StyleSheet, Text, View, TextInput, Pressable, Alert } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { database, collection, addDoc } from '../config/firebaseconfig';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'; 
+import {onSnapshot} from 'firebase/firestore';
 
-export default function NovoUsuario({ navigation }) {
+export default function AddUsuario({ navigation }) {
+  const [task2, setTask2] = useState([])
   const [newcodigo, setNewCodigo] = useState('');
   const [newemail, setNewEmail] = useState('');
   const [newnome, setNewNome] = useState('');
   const [newpapel, setNewPapel] = useState('');
   const [newsenha, setNewSenha] = useState('');
   const [newuri, setNewUri] = useState('')
+
+  useEffect (() => {
+    const tasksCollection2 = collection(database, 'Usuario')
+    const listen = onSnapshot(tasksCollection2, (query) => {
+      const list2 = []
+      query.forEach((doc) => {
+        list2.push({...doc.data(), id: doc.id})
+      })
+      setTask2(list2)
+    })
+    return ()  => listen();
+  }, [])
 
   async function addTask() {
     if (!newcodigo || !newemail || !newnome || !newpapel || !newsenha || !newuri) {
@@ -33,12 +47,26 @@ export default function NovoUsuario({ navigation }) {
       const auth = getAuth(); // Inicializa a instância de autenticação
       await createUserWithEmailAndPassword(auth, newemail, newsenha);
 
-      navigation.navigate('Perfil');
+      
     } catch (error) {
       console.error("Error adding document: ", error);
       Alert.alert('Erro', 'Houve um erro ao salvar o usuário.');
     }
   }
+function addverificado(){
+  var bool = "False";
+  for (var i = 0; i < task2.length; i++){
+    if(task2[i].email == newemail){
+      var bool = "True"
+    }
+  }
+  if (bool == "True"){
+    alert("O Email já esta sendo utilizado");
+  }
+  else{
+    addTask()
+  }
+}
 
   return (
     <View style={styles.container}>
@@ -92,7 +120,7 @@ export default function NovoUsuario({ navigation }) {
           secureTextEntry={true}
           placeholderTextColor="#000"
         />
-        <Pressable style={styles.btnsave} onPress={addTask}>
+        <Pressable style={styles.btnsave} onPress={addverificado}>
           <Text style={styles.txtBotao}>Salvar</Text>
         </Pressable>
       </View>
