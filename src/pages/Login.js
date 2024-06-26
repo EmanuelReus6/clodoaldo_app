@@ -36,7 +36,7 @@ export default function Login({navigation}) {
     behavior={Platform.OS === "ios" ? "padding": "height"}
     style={styles.container}>
       <View> 
-        <Image style={styles.img} source={'./assets/logocanguru.png'} />
+        <Image style={styles.img} source={{uri:'https://www.canguru.com.br/media/img/assets/brand-face.png'}} />
       </View>
       <TextInput
         style={styles.input}

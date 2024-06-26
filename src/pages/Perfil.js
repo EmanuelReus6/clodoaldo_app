@@ -44,7 +44,7 @@ function mostrarUsuario(){
         <TextInput
           style={styles.input}
           placeholder={task2[i].email}
-          placeholderTextColor="#000"
+          placeholderTextColor="#000"          
         />
         <TextInput
           style={styles.input}

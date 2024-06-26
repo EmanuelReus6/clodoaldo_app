@@ -88,7 +88,9 @@ export default function NovoUsuario({ navigation }) {
           placeholderTextColor="#000"
         />
         <Pressable style={styles.btnsave} onPress={addTask}>
-          <Text style={styles.txtBotao}>Salvar</Text>
+          <Text style={styles.txtBotao}
+          onPress={() => navigation.navigate('Perfil') }
+          >Salvar</Text>
         </Pressable>
       </View>
     </View>
